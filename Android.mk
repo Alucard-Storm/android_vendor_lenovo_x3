@@ -18,16 +18,6 @@ LOCAL_PATH := $(call my-dir)
 ifneq ($(filter x3,$(TARGET_DEVICE)),)
 
 include $(CLEAR_VARS)
-LOCAL_MODULE := TimeService
-LOCAL_MODULE_CLASS := APPS
-LOCAL_MODULE_OWNER := qcom
-LOCAL_MODULE_SUFFIX := $(COMMON_ANDROID_PACKAGE_SUFFIX)
-LOCAL_MODULE_TAGS := optional
-LOCAL_CERTIFICATE := platform
-LOCAL_SRC_FILES := vendor/system/app/TimeService/TimeService.apk
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
 LOCAL_MODULE := libtime_genoff
 LOCAL_MODULE_OWNER := qcom
 LOCAL_SRC_FILES_64 := vendor/system/vendor/lib64/libtime_genoff.so
@@ -53,42 +43,6 @@ LOCAL_MODULE_PATH_64 := $(TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MODULE_PATH_32 := $(2ND_TARGET_OUT_VENDOR_SHARED_LIBRARIES)
 LOCAL_MULTILIB := both
 LOCAL_PROPRIETARY_MODULE := true
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := tcmclient
-LOCAL_MODULE_OWNER := qcom
-LOCAL_SRC_FILES := vendor/system/framework/tcmclient.jar
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := .jar
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := com.qti.dpmframework
-LOCAL_MODULE_OWNER := qcom
-LOCAL_SRC_FILES := vendor/system/framework/com.qti.dpmframework.jar
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := .jar
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := dpmapi
-LOCAL_MODULE_OWNER := qcom
-LOCAL_SRC_FILES := vendor/system/framework/dpmapi.jar
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := .jar
-include $(BUILD_PREBUILT)
-
-include $(CLEAR_VARS)
-LOCAL_MODULE := com.qti.location.sdk
-LOCAL_MODULE_OWNER := qcom
-LOCAL_SRC_FILES := vendor/system/framework/com.qti.location.sdk.jar
-LOCAL_MODULE_TAGS := optional
-LOCAL_MODULE_CLASS := JAVA_LIBRARIES
-LOCAL_MODULE_SUFFIX := .jar
 include $(BUILD_PREBUILT)
 
 $(shell mkdir -p $(PRODUCT_OUT)/system/vendor/lib/egl && pushd $(PRODUCT_OUT)/system/vendor/lib > /dev/null && ln -s egl/libEGL_adreno.so libEGL_adreno.so && popd > /dev/null)
